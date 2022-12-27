@@ -1,11 +1,10 @@
-# Online Python compiler (interpreter) to run Python online.
-# Write Python 3 code in this online editor and run it.
 # Create a function that receives a list of strings that are arithmetic
 # problems and returns the problems arranged vertically and side-by-side.
 # The function should optionally take a second argument and
 # when the second argument is set to `True`, the answers should be displayed'''
 
 import operator
+import re
 
 ops = {"+": operator.add, "-": operator.sub}
 
@@ -21,11 +20,11 @@ def arithmetic_arranger(list_of_problems, solver=False):
     second_line = ""# To hold the second line of each of the expressions (i.e the line containing the operator and second operand)
     dashes = ""# Bunch of horizontal dashes to separate the operands from their result)
     results = ""
-    max_result_length = 0
+    aligning_space = 0
     for problems in list_of_problems:
        
-        if "+" not in problems and  "-" not in problems:  # Second Error Handling: Only '+' and '-' operators are allowed
-            return 'Error: Operator must be '+' or '-'.'
+        if re.search("[/]", problems) or re.search("[*]", problems):
+          return "Error: Operator must be '+' or '-'."
 
         first_number = problems.split()[0]
         operator = problems.split()[1]
@@ -34,7 +33,7 @@ def arithmetic_arranger(list_of_problems, solver=False):
         if not first_number.isdigit() or not second_number.isdigit():  # Third Error Handling: Numbers must only contain digits
             return 'Error: Numbers must only contain digits.'
 
-        if len(first_number or second_number) > 4:  # Fourth Error Handling: Numbers must only contain 4 digits
+        if len(first_number) > 4 or len(second_number) > 4:  # Fourth Error Handling: Numbers must only contain 4 digits
             return 'Error: Numbers cannot be more than four digits.'
 
         result = ops[operator](int(first_number), int(second_number))
