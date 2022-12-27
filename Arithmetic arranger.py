@@ -82,8 +82,19 @@ except ValueError as e:
 else:
     assert False, "Expected a ValueError to be raised"
 
-# Test that the function returns the expected output for a valid input
-assert arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]) == " 32      + 698    \n3801    - 2       \n________________\n 45      + 43      \n123      + 49      \n________________", "Unexpected output"
+def test_arithmetic_arranger():
+    # Test with a single problem
+    input1 = ['32 + 698']
+    expected_output1 = '   32\n+ 698\n_____'
+    assert arithmetic_arranger(input1) == expected_output1
 
-# Test that the function returns the expected output for a valid input with the solver option set to True
-assert arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"], solver=True) == " 32      + 698    \n3801    - 2       \n________________\n 45      + 43      \n123      + 49      \n________________\n730      3799      \n168      172       ", "Unexpected output"
+    # Test with multiple problems
+    input2 = ['32 + 698', '3801 - 2', '45 + 43']
+    expected_output2 = ' 32       3801      45      \n+698      -2        +43      \n_____    ______    ____    '
+    assert arithmetic_arranger(input2) == expected_output2
+
+    # Test with multiple problems and the solver flag set to True
+    expected_output3 = ' 32       3801      45      \n+698      -2        +43      \n_____    ______    ____    \n730      3799      88      '
+    assert arithmetic_arranger(input2, solver=True) == expected_output3
+
+test_arithmetic_arranger()
