@@ -81,3 +81,6 @@ def test_template(arguments, expected_output, fail_message):
     actual = arithmetic_arranger(*arguments)
     assert actual == expected_output, fail_message
     print("Test passed successfully for:", arguments)
+
+if __name__ == "__main__":
+    pytest.main(["-s", __file__])
