@@ -57,5 +57,3 @@ The function will return the correct conversion if the supplied problems are pro
     * There should be dashes at the bottom of each problem. The dashes should run along the entire length of each problem individually. (The example above shows what this should look like.)
 
 ### Testing 
-
-The unit tests for this project are in `test_module.py`.
