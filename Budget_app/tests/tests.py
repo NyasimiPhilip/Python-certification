@@ -1,7 +1,10 @@
 import unittest
 import budget
-from budget import create_spend_chart
+import sys
+import os 
 
+sys.path.append(os.path.abspath(".."))
+from budget import create_spend_chart
 
 class UnitTests(unittest.TestCase):
     maxDiff = None
