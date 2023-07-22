@@ -3,9 +3,9 @@
 import sys
 import os
 import unittest
-
+sys.path.append(os.path.abspath(".."))
+'''sys.path.append(os.path.abspath("/home/enwai/Python-certification/Time_calculator/tests"))'''
 from time_calculator import add_time
-sys.path.append(os.path.abspath("/home/enwai/Python-certification/Time_calculator"))
 class UnitTests(unittest.TestCase):
     maxDiff = None
     def test_same_period(self):
