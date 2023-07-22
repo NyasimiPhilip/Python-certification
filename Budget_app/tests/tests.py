@@ -1,9 +1,14 @@
+#!/usr/bin/python3
 import unittest
 import budget
 import sys
 import os 
 
-sys.path.append(os.path.abspath(".."))
+# Get the path to the script's directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Append the script's directory to the sys.path
+sys.path.append(script_dir)
 from budget import create_spend_chart
 
 class UnitTests(unittest.TestCase):
