@@ -60,4 +60,4 @@ print(result)
   <li>The function accounts for changes in AM/PM when the total sum of hours exceeds 12.</li>
 </ul>
 
-<p>Feel free to experiment with different start times, durations, and starting days of the week to see the function in action!</p>
+
